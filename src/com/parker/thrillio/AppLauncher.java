@@ -18,11 +18,11 @@ public class AppLauncher
 		users = UserManager.getInstance().getUsers();
 		bookmarks = BookmarkManager.getInstance().getBookmarks();
 		
-		System.out.println("Printing users: ");
-		printUserData();
+		//System.out.println("Printing users: ");
+		//printUserData();
 		
-		System.out.println("Printing bookmark data: ");
-		printBookmarkData();
+		//System.out.println("Printing bookmark data: ");
+		//printBookmarkData();
 	}
 
 	private static void printUserData()
@@ -46,10 +46,10 @@ public class AppLauncher
 
 	public static void startBookmarking()
 	{
-		System.out.println("2. Bookmarking ......");
+		//System.out.println("2. Bookmarking ......");
 		for (User user: users)
 		{
-			View.bookmark(user, bookmarks);
+			View.browse(user, bookmarks);
 		}
 	}
 

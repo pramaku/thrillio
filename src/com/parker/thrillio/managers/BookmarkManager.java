@@ -73,4 +73,31 @@ public class BookmarkManager
 		userBookmark.setBookmark(bookmark);
 		dao.saveUserBookmark(userBookmark);
 	}
+
+	public void setKidfriendlyStatus(User user, String status, Bookmark bookmark)
+	{
+		bookmark.setKidFriendlyStatus(status);
+		bookmark.setKidFriendlyMarkedBy(user);
+		System.out.println("Bookmark " + bookmark + " marked kidfriendly - " + status + " by " + user);
+	}
+
+	public void share(User user, Bookmark bookmark) {
+		bookmark.setSharedBy(user);
+		System.out.println("Bookmark " + bookmark + " shared by " + user);
+		
+		if (bookmark instanceof Book)
+		{
+			Book book = (Book)bookmark;
+			System.out.println("Sending Book data to Good reads:" + book.getItemData());
+		}
+		else if (bookmark instanceof WebLink)
+		{
+			WebLink webLink = (WebLink)bookmark;
+			System.out.println("Sending WebLink data to Good reads:" + webLink.getItemData());
+		}
+		else
+		{
+			System.out.println("Bookmark " + bookmark + " cannot be shared");
+		}
+	}
 }

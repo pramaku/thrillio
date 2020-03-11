@@ -2,6 +2,8 @@ package com.parker.thrillio.entities;
 
 import java.util.Arrays;
 
+import com.parker.thrillio.constants.MovieGenre;
+
 public class Movie extends Bookmark {
 	private int releaseYear;
 	private String[] cast;
@@ -52,7 +54,11 @@ public class Movie extends Bookmark {
 	@Override
 	public boolean isKidFriendlyEligible()
 	{
-		return false;
+		if (getGenre().equalsIgnoreCase(MovieGenre.HORROR) || getGenre().equalsIgnoreCase(MovieGenre.THRILLERS))
+		{
+			return false;
+		}
+		return true;
 	}
 
 	@Override
